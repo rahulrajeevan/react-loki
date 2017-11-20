@@ -8,7 +8,8 @@ class Loki extends Component {
   static defaultProps = {
     backLabel: "Back",
     nextLabel: "Next",
-    finishLabel: "Finish"
+    finishLabel: "Finish",
+    nextStep: 1
   };
 
   state = {
@@ -16,6 +17,13 @@ class Loki extends Component {
     stepsDone: [],
     complete: false
   };
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.nextStep !== nextProps.nextStep && nextProps.nextStep) {
+      this.setState({ currentStep: newStep });
+    }
+  }
+  
 
   _back(data) {
     this.props.onBack && this.props.onBack(data);

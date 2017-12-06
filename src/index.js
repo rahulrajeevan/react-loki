@@ -13,7 +13,7 @@ class Loki extends Component {
   };
 
   state = {
-    currentStep: 1,
+    currentStep: nextStep,
     stepsDone: [],
     complete: false
   };
